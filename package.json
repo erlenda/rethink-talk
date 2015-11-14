@@ -1,0 +1,28 @@
+{
+  "name": "rethink-talk",
+  "version": "1.0.0",
+  "description": "rethink-talk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erlenda/rethink-talk.git"
+  },
+  "keywords": [
+    "rethinkdb",
+    "websocket"
+  ],
+  "author": "Erlend Andresen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erlenda/rethink-talk/issues"
+  },
+  "homepage": "https://github.com/erlenda/rethink-talk#readme",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "http": "0.0.0",
+    "socket.io": "^1.3.7"
+  }
+}
