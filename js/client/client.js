@@ -5,11 +5,12 @@ var App = React.createClass({
   componentDidMount: function () {
     console.log('componentDidMount()');
   },
-  render: function {
+  render: function() {
     var hello = 'hello';
     return (
       <div>
         {hello}
+        {table}
       </div>
     );
   }

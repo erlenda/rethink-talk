@@ -1,8 +1,13 @@
 var React = require('React');
 
 module.exports = React.createClass({
+  setInitialState: function () {
+    return {
+      teams: []
+    }
+  },
   render: function() {
-    var teamRows = this.data.teams.value().map(function(t) {
+    var teamRows = this.state.teams.map(function(t) {
       return  <tr key={t.id}>
                 <td>{t.name}</td>
                 <td>{t.won}</td>
