@@ -1,0 +1,4 @@
+module.exports = {
+  TEAMS_CHANGED: 'TEAMS_CHANGED',
+  MATCHES_CHANGED: 'MATCHES_CHANGED'
+};

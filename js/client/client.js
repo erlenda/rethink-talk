@@ -1,17 +1,10 @@
-var React = require('React');
-var table = require('../compos/table');
+var React = require('react');
+var ReactDOM = require('react-dom');
 
-var App = React.createClass({
-  componentDidMount: function () {
-    console.log('componentDidMount()');
-  },
-  render: function() {
-    var hello = 'hello';
-    return (
-      <div>
-        {hello}
-        {table}
-      </div>
-    );
-  }
-}, document.getElementById('app'));
+var Table = require('../compos/table');
+
+ReactDOM.render((
+  <div>
+    <Table/>
+  </div>
+), document.getElementById('app'));

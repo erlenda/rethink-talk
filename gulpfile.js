@@ -38,7 +38,7 @@ gulp.task('webserver', function() {
         enable: true
       },
       fallback: 'index.html',
-      directoryListing: true
+      directoryListing: false
     }));
 });
 
