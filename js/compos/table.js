@@ -16,12 +16,15 @@ module.exports = React.createClass({
       ]
     });
     this.SubStoreClient = SubStore();
-    this.SubStoreClient.subscribe(SUBS.TEAMS_CHANGED, this.onTeamsChanged)
-    //this.SubStoreClient.subscribe(SUBS.MATCHES_CHANGED, this.onMatchesChanged)
+
+    this.SubStoreClient.subscribe([
+      { sub: SUBS.TEAMS_CHANGED, callback: this.onTeamsChanged },
+      { sub: SUBS.MATCHES_CHANGED, callback: this.onMatchesChanged }
+    ]);
   },
   onTeamsChanged: function (event) {
     console.log(event.data);
-    var updatedTeams = JSON.parse(event.data);
+    var updatedTeams = JSON.parse(event.data).teams;
     var teams = this.state.teams;
     var newTeam = updatedTeams[0];
     newTeam.id = teams.length;

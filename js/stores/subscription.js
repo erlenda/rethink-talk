@@ -15,31 +15,31 @@ var Subscription = function() {
   client.onclose = function() {
     console.log('echo-protocol Client Closed');
   };
-  
-  var subscribe = function (sub, callback) {
-    client.onopen = function() {
-      client.send(JSON.stringify({sub: sub}));
-      client.onmessage = callback;
-      //el.push(callback);
-    };
+
+  var ee = new EventEmitter();
+
+  client.onmessage = function(event) {
+    var sub = JSON.parse(event.data).sub;
+    ee.emit(sub, event);
+  };
+
+  client.onopen = function() {
+    ee.emit('connected');
+  };
+
+  var subscribe = function (arr) {
+    // on open, register subscription
+    ee.on('connected', function () {
+      arr.map(function(s) {
+        ee.on(s.sub, s.callback);
+        client.send(JSON.stringify({sub: s.sub}));
+      });
+    });
   };
 
   return {
     subscribe: subscribe
   };
-
-  /* we need to handle multiple onmessage callbacks ... */
-
-  // var ee = new EventEmitter();
-  // var el = [];
-  //
-  // client.onmessage = function () {
-  //   ee.emit('callbacks', function () {
-  //     for(ev in el) {
-  //       client.onmessage = ev.(ev.func.params);
-  //     }
-  //   });
-  // };
 };
 
 module.exports = Subscription;
