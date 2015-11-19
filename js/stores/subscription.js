@@ -2,7 +2,7 @@ var W3CWebSocket = require('websocket').w3cwebsocket;
 var EventEmitter = require('events').EventEmitter;
 
 var Subscription = function() {
-  var client = new W3CWebSocket('ws://localhost:8080/', 'echo-protocol');
+  var client = new W3CWebSocket('ws://localhost:8081/', 'echo-protocol');
 
   client.onerror = function() {
     console.log('Connection Error');
